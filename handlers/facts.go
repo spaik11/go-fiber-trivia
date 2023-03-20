@@ -16,6 +16,7 @@ func ListFacts(c *fiber.Ctx) error {
 
 func CreateFact(c *fiber.Ctx) error {
 	fact := new(models.Fact)
+
 	if err := c.BodyParser(fact); err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
 			"message": err.Error(),
